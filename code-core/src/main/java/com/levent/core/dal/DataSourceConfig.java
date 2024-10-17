@@ -43,10 +43,10 @@ public class DataSourceConfig {
         return new DsAspect();
     }
 
-//    @Bean
-//    public SqlStateInterceptor sqlStateInterceptor() {
-//        return new SqlStateInterceptor();
-//    }
+    @Bean
+    public SqlStateInterceptor sqlStateInterceptor() {
+        return new SqlStateInterceptor();
+    }
 
     /**
      * 整合主从数据源

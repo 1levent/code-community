@@ -1,5 +1,7 @@
 package com.levent.web;
 
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.levent.core.util.SocketUtil;
 import com.levent.core.util.SpringUtil;
 import com.levent.web.config.GlobalViewConfig;
@@ -76,7 +78,7 @@ public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         //fixme 设置类型转换, 主要用于mybatis读取varchar/json类型数据据，并写入到json格式的实体Entity中
-//        JacksonTypeHandler.setObjectMapper(new ObjectMapper());
+        JacksonTypeHandler.setObjectMapper(new ObjectMapper());
         //应用启动之后执行
         GlobalViewConfig config = SpringUtil.getBean(GlobalViewConfig.class);
         if (webPort != null) {
