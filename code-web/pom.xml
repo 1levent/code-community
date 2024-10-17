@@ -21,12 +21,7 @@
         <!-- 其他模块依赖 -->
         <dependency>
             <groupId>com.levent</groupId>
-            <artifactId>code-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.levent</groupId>
-            <artifactId>code-api</artifactId>
+            <artifactId>code-ui</artifactId>
         </dependency>
 
         <dependency>
@@ -42,6 +37,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
 
         <dependency>
@@ -91,6 +91,14 @@
             <artifactId>commons-collections4</artifactId>
         </dependency>
 
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
         <!-- Test libs start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -118,10 +126,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.baomidou</groupId>-->
-<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+
 
     </dependencies>
 

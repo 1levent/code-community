@@ -1,4 +1,4 @@
-package com.levent.web.mysql;
+package com.levent.core.mysql;
 
 import com.levent.web.test.BasicTest;
 import lombok.extern.slf4j.Slf4j;

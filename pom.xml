@@ -35,7 +35,7 @@
         <commons-io.version>2.11.0</commons-io.version>
         <knife4j.version>4.0.0</knife4j.version>
         <guava.version>31.1-jre</guava.version>
-        <mybaits-plus.version>3.5.2</mybaits-plus.version>
+        <mybaits-plus.version>3.5.7</mybaits-plus.version>
         <jdbc.version>3.3.0</jdbc.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <mysql.version>8.0.33</mysql.version>

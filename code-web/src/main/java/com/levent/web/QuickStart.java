@@ -4,6 +4,7 @@ import com.levent.core.util.SocketUtil;
 import com.levent.core.util.SpringUtil;
 import com.levent.web.config.GlobalViewConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -32,6 +33,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableCaching
 @ServletComponentScan
 @SpringBootApplication
+@MapperScan("com.levent.service.demo.repository.mapper")
 public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
     @Value("${server.port:8080}")
     private Integer webPort;
