@@ -1,4 +1,4 @@
-package com.levent.util;
+package com.levent.core.util;
 
 import java.sql.Timestamp;
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package com.levent.util;
+package com.levent.core.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.boot.context.properties.bind.Binder;

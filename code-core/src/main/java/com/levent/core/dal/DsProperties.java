@@ -1,4 +1,4 @@
-package com.levent.dal;
+package com.levent.core.dal;
 
 import lombok.Data;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;

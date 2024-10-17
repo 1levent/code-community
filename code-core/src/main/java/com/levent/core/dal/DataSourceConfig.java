@@ -1,4 +1,4 @@
-package com.levent.dal;
+package com.levent.core.dal;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -43,10 +43,10 @@ public class DataSourceConfig {
         return new DsAspect();
     }
 
-    @Bean
-    public SqlStateInterceptor sqlStateInterceptor() {
-        return new SqlStateInterceptor();
-    }
+//    @Bean
+//    public SqlStateInterceptor sqlStateInterceptor() {
+//        return new SqlStateInterceptor();
+//    }
 
     /**
      * 整合主从数据源
@@ -123,4 +123,5 @@ public class DataSourceConfig {
         log.info("开启druid数据源监控面板");
         return servletRegistrationBean;
     }
+
 }

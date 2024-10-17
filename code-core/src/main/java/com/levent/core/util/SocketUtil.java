@@ -1,7 +1,6 @@
-package com.levent.util;
+package com.levent.core.util;
 
 import javax.net.ServerSocketFactory;
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.Random;
 

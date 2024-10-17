@@ -1,8 +1,7 @@
-package com.levent.dal;
+package com.levent.core.dal;
 
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -21,7 +20,7 @@ public class DsAspect {
     /**
      * within: 匹配当前类中的所有方法（有注解的类）
      */
-    @Pointcut("@annotation(com.levent.dal.DsAno) || @within(com.levent.dal.DsAno)")
+    @Pointcut("@annotation(com.levent.core.dal.DsAno) || @within(com.levent.core.dal.DsAno)")
     public void pointcut(){
     }
 

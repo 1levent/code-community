@@ -1,4 +1,4 @@
-package com.levent.dal;
+package com.levent.core.dal;
 
 import java.util.function.Supplier;
 

@@ -1,7 +1,7 @@
-package com.github.paicoding.forum.core.autoconf;
+package com.levent.core.autoconf;
 
-import com.github.paicoding.forum.api.model.event.ConfigRefreshEvent;
-import com.github.paicoding.forum.core.autoconf.property.SpringValueRegistry;
+import com.levent.api.model.event.ConfigRefreshEvent;
+import com.levent.core.autoconf.property.SpringValueRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * 配置刷新事件监听
  *
- * @author YiHui
+ * @author levent
  * @date 2023/09/14
  */
 @Service

@@ -1,4 +1,4 @@
-package com.github.paicoding.forum.core.autoconf.property;
+package com.levent.core.autoconf.property;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanExpressionContext;

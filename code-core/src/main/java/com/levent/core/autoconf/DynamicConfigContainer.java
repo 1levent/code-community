@@ -1,4 +1,4 @@
-package com.levent.core.autoconf.property;
+package com.levent.core.autoconf;
 
 import com.google.common.collect.Maps;
 import com.levent.core.util.JsonUtil;

@@ -1,4 +1,4 @@
-package com.levent.dal;
+package com.levent.core.dal;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

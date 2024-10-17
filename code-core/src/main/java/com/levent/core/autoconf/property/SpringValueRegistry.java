@@ -1,6 +1,6 @@
-package com.github.paicoding.forum.core.autoconf.property;
+package com.levent.core.autoconf.property;
 
-import com.github.paicoding.forum.core.util.SpringUtil;
+import com.levent.core.util.SpringUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
@@ -17,7 +17,7 @@ import java.util.function.BiFunction;
 /**
  * 配置变更注册
  *
- * @author YiHui
+ * @author levent
  * @date 2023/6/26
  */
 @Slf4j
