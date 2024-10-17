@@ -23,6 +23,8 @@ spring:
   mvc:
     async:
       request-timeout:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   # 使用liquibase管理数据库表变更
   liquibase:
     change-log: classpath:liquibase/master.xml
@@ -32,6 +34,7 @@ spring:
     multipart:
       max-file-size: 5MB
       max-request-size: 10MB
+
 
 
 servlet:
@@ -63,29 +66,28 @@ mybatis-plus:
 #    com.levent.service.rank.service.impl.*: debug # 指定具体包下的日志输出级别
 
 
-#knife4j:
-#  enable: true
-#  setting:
-#    language: zh_CN
-#  openapi:
-#    title: 码客社区
-#    description: 致力于技术分享的社区
-#    version: 1.0
-#    concat:
-#     - levent
-#    email: 1993262229@qq.com
-#    group:
-#      admin:
-#        group-name: 后台接口分组
-#        api-rule: package
-#        api-rule-resources:
-#          - com.levent.web.admin
-#      front:
-#        group-name: 前台接口分组
-#        api-rule: package
-#        api-rule-resources:
-#          - com.levent.web.front
-
+knife4j:
+  enable: true
+  setting:
+    language: zh_CN
+  openapi:
+    title: 码客社区
+    description: 致力于技术分享的社区
+    version: 1.0
+    concat:
+     - levent
+    email: 1993262229@qq.com
+    group:
+      admin:
+        group-name: 后台接口分组
+        api-rule: package
+        api-rule-resources:
+          - com.levent.web.admin
+      front:
+        group-name: 前台接口分组
+        api-rule: package
+        api-rule-resources:
+          - com.levent.web.front
 
 
 

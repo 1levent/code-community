@@ -1,4 +1,4 @@
-package com.levent.web.test;
+package com.levent.web;
 
 import com.levent.web.QuickStart;
 import lombok.extern.slf4j.Slf4j;
