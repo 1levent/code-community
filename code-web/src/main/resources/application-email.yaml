@@ -3,8 +3,8 @@ spring:
   mail:
     host: smtp.qq.com
     from: guan.levent@foxmail.com
-    username: guan.levent
-    password: ptagwqbyeqjlhiaj
+    username: 1993262229
+    password: rljihzwkppqlebdd
     default-encoding: UTF-8
     port: 465
     properties:
@@ -16,8 +16,8 @@ spring:
             fallback: false
           auth: true
           starttls:
-            enable: true
-            required: true
+            enable: false
+            required: false
 
 alarm:
   # 接收报警的用户邮箱，多个人时，使用英文逗号分隔
