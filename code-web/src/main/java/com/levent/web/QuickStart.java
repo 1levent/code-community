@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.levent.core.util.SocketUtil;
 import com.levent.core.util.SpringUtil;
 import com.levent.web.config.GlobalViewConfig;
+import com.levent.web.global.ForumExceptionHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * @Author: guanxinyi
@@ -48,11 +52,11 @@ public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
 //        registry.addInterceptor(globalViewInterceptor).addPathPatterns("/**");
 //    }
 //
-//    @Override
-//    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-//        resolvers.add(0, new ForumExceptionHandler());
-//    }
-//
+    @Override
+    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+        resolvers.add(0, new ForumExceptionHandler());
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(QuickStart.class, args);
     }

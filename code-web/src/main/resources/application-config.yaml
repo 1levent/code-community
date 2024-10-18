@@ -1,3 +1,4 @@
 view:
   site:
+    websiteName: 码客社区
     host: http://127.0.0.1:${server.port}
