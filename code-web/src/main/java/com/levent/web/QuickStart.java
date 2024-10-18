@@ -52,10 +52,11 @@ public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
 //        registry.addInterceptor(globalViewInterceptor).addPathPatterns("/**");
 //    }
 //
-    @Override
-    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-        resolvers.add(0, new ForumExceptionHandler());
-    }
+//    //如果使用@controllerAdvice注解，需要注释掉
+//    @Override
+//    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+//        resolvers.add(0, new ForumExceptionHandler());
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(QuickStart.class, args);

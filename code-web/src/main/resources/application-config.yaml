@@ -2,3 +2,4 @@ view:
   site:
     websiteName: 码客社区
     host: http://127.0.0.1:${server.port}
+    welcomeInfo: 欢迎来到码客社区

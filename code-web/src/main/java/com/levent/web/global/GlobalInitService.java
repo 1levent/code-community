@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.levent.api.model.context.ReqInfoContext;
 import com.levent.api.model.vo.user.dto.BaseUserInfoDTO;
 import com.levent.core.util.NumUtil;
+import com.levent.core.util.SessionUtil;
+import com.levent.service.user.service.UserService;
 import com.levent.web.config.GlobalViewConfig;
 import com.levent.web.global.vo.GlobalVo;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,8 @@ public class GlobalInitService {
 //    private String env;
     @Resource
     private GlobalViewConfig globalViewConfig;
+//    @Resource
+//    private UserService userService;
     /**
      * 全局属性配置
      */
@@ -92,13 +96,14 @@ public class GlobalInitService {
 //                .ifPresent(cookie -> initLoginUser(cookie.getValue(), reqInfo));
     }
 
-//    public void initLoginUser(String session, ReqInfoContext.ReqInfo reqInfo) {
+    public void initLoginUser(String session, ReqInfoContext.ReqInfo reqInfo) {
 //        BaseUserInfoDTO user = userService.getAndUpdateUserIpInfoBySessionId(session, null);
-//        reqInfo.setSession(session);
-//        if (user != null) {
-//            reqInfo.setUserId(user.getUserId());
-//            reqInfo.setUser(user);
+        BaseUserInfoDTO user = new BaseUserInfoDTO();
+        reqInfo.setSession(session);
+        if (user != null) {
+            reqInfo.setUserId(user.getUserId());
+            reqInfo.setUser(user);
 //            reqInfo.setMsgNum(notifyService.queryUserNotifyMsgCount(user.getUserId()));
-//        }
-//    }
+        }
+    }
 }

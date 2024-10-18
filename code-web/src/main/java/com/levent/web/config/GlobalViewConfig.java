@@ -15,4 +15,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class GlobalViewConfig {
     private String host;
+
+    private String websiteName;
+
+    /**
+     * 首次登录的欢迎信息
+     */
+    private String welcomeInfo;
 }
