@@ -12,6 +12,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("com.levent.service")
-@MapperScan("com.levent.service.demo.repository.mapper")
+@MapperScan(basePackages = {
+        "com.levent.service.article.repository.mapper",
+        "com.levent.service.user.repository.mapper",
+        "com.levent.service.comment.repository.mapper",
+//        "com.levent.service.config.repository.mapper",
+//        "com.levent.service.statistics.repository.mapper",
+//        "com.levent.service.notify.repository.mapper",
+})
 public class ServiceAutoConfig {
 }

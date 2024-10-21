@@ -44,6 +44,15 @@ servlet:
     max-swallow-size: -1
 
 
+security:
+  salt: code # 密码加盐, 更安全的做法是每个用户的密码使用独立的盐，并将其保存在用户表中
+  salt-index: 3 # 盐插入的位置
+
+community:
+  jwt:
+    issuer: levent
+    secret: code_community
+    expire: 2592000000 # jwt的有效期，默认30天
 
 database:
   name: code_community

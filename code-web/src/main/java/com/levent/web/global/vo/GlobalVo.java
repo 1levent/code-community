@@ -1,6 +1,7 @@
 package com.levent.web.global.vo;
 
 import com.levent.api.model.vo.user.dto.BaseUserInfoDTO;
+import com.levent.service.sitemap.model.SiteCntVo;
 import com.levent.web.config.GlobalViewConfig;
 import lombok.Data;
 
@@ -14,20 +15,20 @@ public class GlobalVo {
      * 网站相关配置
      */
     private GlobalViewConfig siteInfo;
-//    /**
-//     * 站点统计信息
-//     */
-//    private SiteCntVo siteStatisticInfo;
-//
-//    /**
-//     * 今日的站点统计想你洗
-//     */
-//    private SiteCntVo todaySiteStatisticInfo;
-//
-//    /**
-//     * 环境
-//     */
-//    private String env;
+    /**
+     * 站点统计信息
+     */
+    private SiteCntVo siteStatisticInfo;
+
+    /**
+     * 今日的站点统计想你洗
+     */
+    private SiteCntVo todaySiteStatisticInfo;
+
+    /**
+     * 环境
+     */
+    private String env;
 
     /**
      * 是否已登录

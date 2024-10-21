@@ -39,7 +39,6 @@ import java.util.List;
 @EnableCaching
 @ServletComponentScan
 @SpringBootApplication
-@MapperScan("com.levent.service.demo.repository.mapper")
 public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
     @Value("${server.port:8080}")
     private Integer webPort;

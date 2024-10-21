@@ -1,11 +1,10 @@
 package com.levent.web.global;
 
-import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.levent.api.model.context.ReqInfoContext;
 import com.levent.api.model.vo.user.dto.BaseUserInfoDTO;
 import com.levent.core.util.NumUtil;
 import com.levent.core.util.SessionUtil;
+import com.levent.service.user.service.LoginService;
 import com.levent.service.user.service.UserService;
 import com.levent.web.config.GlobalViewConfig;
 import com.levent.web.global.vo.GlobalVo;
@@ -30,18 +29,32 @@ import java.util.Optional;
 @Service
 public class GlobalInitService {
 
-//    @Value("${env.name}")
-//    private String env;
+    @Value("${env.name}")
+    private String env;
+
+    @Resource
+    private UserService userService;
+
     @Resource
     private GlobalViewConfig globalViewConfig;
+//
 //    @Resource
-//    private UserService userService;
+//    private NotifyService notifyService;
+//
+//    @Resource
+//    private SeoInjectService seoInjectService;
+//
+//    @Resource
+//    private UserStatisticService userStatisticService;
+//
+//    @Resource
+//    private SitemapService sitemapService;
     /**
      * 全局属性配置
      */
     public GlobalVo globalAttr() {
         GlobalVo vo = new GlobalVo();
-//        vo.setEnv(env);
+        vo.setEnv(env);
         vo.setSiteInfo(globalViewConfig);
 //        vo.setOnlineCnt(userStatisticService.getOnlineUserCnt());
 //        vo.setSiteStatisticInfo(sitemapService.querySiteVisitInfo(null, null));
@@ -92,13 +105,12 @@ public class GlobalInitService {
         if (request.getCookies() == null) {
             return;
         }
-//        Optional.ofNullable(SessionUtil.findCookieByName(request, LoginService.SESSION_KEY))
-//                .ifPresent(cookie -> initLoginUser(cookie.getValue(), reqInfo));
+        Optional.ofNullable(SessionUtil.findCookieByName(request, LoginService.SESSION_KEY))
+                .ifPresent(cookie -> initLoginUser(cookie.getValue(), reqInfo));
     }
 
     public void initLoginUser(String session, ReqInfoContext.ReqInfo reqInfo) {
-//        BaseUserInfoDTO user = userService.getAndUpdateUserIpInfoBySessionId(session, null);
-        BaseUserInfoDTO user = new BaseUserInfoDTO();
+        BaseUserInfoDTO user = userService.getAndUpdateUserIpInfoBySessionId(session, null);
         reqInfo.setSession(session);
         if (user != null) {
             reqInfo.setUserId(user.getUserId());

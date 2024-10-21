@@ -69,7 +69,9 @@ public class ForumDataSourceInitializer {
      * @return
      */
     private boolean needInit(DataSource dataSource) {
+        log.info("判断是否需要初始化");
         if(autoInitDatabase()){
+            log.info("数据库不存在，需要初始化");
             return true;
         }
         // 根据是否存在表来判断是否需要执行sql操作
