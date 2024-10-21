@@ -6,6 +6,7 @@ import com.levent.core.util.SocketUtil;
 import com.levent.core.util.SpringUtil;
 import com.levent.web.config.GlobalViewConfig;
 import com.levent.web.global.ForumExceptionHandler;
+import com.levent.web.hook.interceptor.GlobalViewInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,8 +23,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -42,14 +45,14 @@ import java.util.List;
 public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
     @Value("${server.port:8080}")
     private Integer webPort;
-//
-//    @Resource
-//    private GlobalViewInterceptor globalViewInterceptor;
-//
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(globalViewInterceptor).addPathPatterns("/**");
-//    }
+
+    @Resource
+    private GlobalViewInterceptor globalViewInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(globalViewInterceptor).addPathPatterns("/**");
+    }
 //
 //    //如果使用@controllerAdvice注解，需要注释掉
 //    @Override
@@ -71,7 +74,7 @@ public class QuickStart implements WebMvcConfigurer, ApplicationRunner {
     public TomcatConnectorCustomizer customServerPortTomcatConnectorCustomizer(Environment environment) {
         log.info("当前环境：{}", environment.getProperty("env.name"));
         // 开发环境时，首先判断8080d端口是否可用；若可用则直接使用，否则选择一个可用的端口号启动
-        int port = SocketUtil.findAvailableTcpPort(8000, 10000, webPort);
+        int port = SocketUtil.findAvailableTcpPort(6000, 10000, webPort);
         if (port != webPort) {
             log.info("默认端口号{}被占用，随机启用新端口号: {}", webPort, port);
             webPort = port;
