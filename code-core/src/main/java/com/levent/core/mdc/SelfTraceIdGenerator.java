@@ -15,8 +15,11 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 public class SelfTraceIdGenerator {
+    //最小值
     private final static Integer MIN_AUTO_NUMBER = 1000;
+    //最大值
     private final static Integer MAX_AUTO_NUMBER = 10000;
+    //自增序号
     private static volatile Integer autoIncreaseNumber = MIN_AUTO_NUMBER;
 
     /**
@@ -36,7 +39,7 @@ public class SelfTraceIdGenerator {
         try {
             // 1. IP - 8
             traceId.append(convertIp(IpUtil.getLocalIp4Address())).append(".");
-            // 2. 时间戳 - 13
+            // 2. 时间戳 - 13 Instant.now().toEpochMilli() 提供了更多的精度和跨平台的一致性
             traceId.append(Instant.now().toEpochMilli()).append(".");
             // 3. 当前进程号 - 5
             traceId.append(getProcessId());
