@@ -305,13 +305,17 @@ public class ArticleDao extends ServiceImpl<ArticleMapper, ArticleDO> {
      * @return
      */
     public List<ArticleDO> listRelatedArticlesOrderByReadCount(Long categoryId, List<Long> tagIds, PageParam pageParam) {
+        //获取相同类目+标签下阅读最多的文章计数列表
+        //todo 优化推荐逻辑
         List<ReadCountDO> list = baseMapper.listArticleByCategoryAndTags(categoryId, tagIds, pageParam);
         if (CollectionUtils.isEmpty(list)) {
             return new ArrayList<>();
         }
-
+        //文章ids
         List<Long> ids = list.stream().map(ReadCountDO::getDocumentId).collect(Collectors.toList());
+        //获取文章列表
         List<ArticleDO> result = baseMapper.selectBatchIds(ids);
+        //根据文章id进行排序
         result.sort((o1, o2) -> {
             int i1 = ids.indexOf(o1.getId());
             int i2 = ids.indexOf(o2.getId());
