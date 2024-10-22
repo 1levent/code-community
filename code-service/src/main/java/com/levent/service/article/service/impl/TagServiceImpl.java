@@ -1,28 +1,38 @@
 package com.levent.service.article.service.impl;
 
+
 import com.levent.api.model.vo.PageParam;
 import com.levent.api.model.vo.PageVo;
 import com.levent.api.model.vo.article.dto.TagDTO;
+import com.levent.service.article.repository.dao.TagDao;
 import com.levent.service.article.service.TagService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
- * @Author: guanxinyi
- * @CreateTime: 2024-10-20
- * @Description: 标签服务
- * @Version: 1.0
+ * 标签Service
+ *
+ * @author louzai
+ * @date 2022-07-20
  */
-@Slf4j
 @Service
 public class TagServiceImpl implements TagService {
+    private final TagDao tagDao;
+
+    public TagServiceImpl(TagDao tagDao) {
+        this.tagDao = tagDao;
+    }
+
     @Override
     public PageVo<TagDTO> queryTags(String key, PageParam pageParam) {
-        return null;
+        List<TagDTO> tagDTOS = tagDao.listOnlineTag(key, pageParam);
+        Integer totalCount = tagDao.countOnlineTag(key);
+        return PageVo.build(tagDTOS, pageParam.getPageSize(), pageParam.getPageNum(), totalCount);
     }
 
     @Override
     public Long queryTagId(String tag) {
-        return 0L;
+        return tagDao.selectTagIdByTag(tag);
     }
 }
