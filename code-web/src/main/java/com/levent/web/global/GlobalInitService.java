@@ -115,6 +115,7 @@ public class GlobalInitService {
         if (user != null) {
             reqInfo.setUserId(user.getUserId());
             reqInfo.setUser(user);
+            //todo 获取消息数量
 //            reqInfo.setMsgNum(notifyService.queryUserNotifyMsgCount(user.getUserId()));
         }
     }
