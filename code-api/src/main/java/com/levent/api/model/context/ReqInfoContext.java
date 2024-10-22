@@ -47,7 +47,7 @@ public class ReqInfoContext {
          */
         private String clientIp;
         /**
-         * referer
+         * referer，这个字段包含了发出请求的前一个页面的 URL 地址，它用来标识请求的来源页面
          */
         private String referer;
         /**
